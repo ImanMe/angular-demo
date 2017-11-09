@@ -1,0 +1,9 @@
+<hr>
+<h3>Reusable Component</h3>
+<div>
+  <!-- <span (click)="onClick()" class="glyphicon glyphicon-star" [class.inactive]="!isActive" [class.active]="isActive"></span> -->
+  <span (click)="onClick()" class="glyphicon glyphicon-star" [ngClass]="{
+    'inactive': !isActive,
+    'active':isActive
+  }"></span>
+</div>

@@ -1,0 +1,8 @@
+<hr>
+<h3>FormArrayDemo</h3>
+<input (keyup.enter)="addTopic(topic)" #topic type="text" class="form-control">
+<ul class="list-group">
+    <li *ngFor="let topic of topics.controls" class="list-group-item" (click)="removeTopic(topic)">
+        {{topic.value}}
+    </li>
+</ul>

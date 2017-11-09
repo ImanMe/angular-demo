@@ -1,0 +1,18 @@
+<hr>
+<h3>*ngSwitch directive</h3>
+
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode == 'map'"><a (click)="viewMode = 'map'">Map</a></li>
+  <li [class.active]="viewMode == 'list'"><a (click)="viewMode = 'list'">List</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">
+    <p>Map Content</p>
+  </div>
+  <div *ngSwitchCase="'list'">
+    <p>List Content</p>
+  </div>
+  <div *ngSwitchDefault>
+    <p>Otherwise</p>
+  </div>
+</div>

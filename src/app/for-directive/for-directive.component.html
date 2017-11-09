@@ -1,0 +1,23 @@
+<hr>
+<h3>*ngFor Directive</h3>
+<div class="row">
+  <div class="col-md-4">
+    <button class="btn btn-success" (click)=loadCourses()>{{btnName}}</button>
+    <button (click)="addCourse()" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+    <button class="btn btn-primary" (click)="summary()"><span class="glyphicon" [class.glyphicon-chevron-left]="allTitle" [class.glyphicon-chevron-right]="!allTitle"></span></button>
+    <br/>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let course of courses; index as no; even as isEven; trackBy: trackByCourse">
+        <span *ngIf="allTitle">
+          {{course.title}} - {{no}} - 
+        </span>
+        <span *ngIf="!allTitle">
+           {{course.title | summary:2}} - {{no}} - 
+          </span>
+        <span *ngIf="isEven">(Even)</span> <span *ngIf="!isEven">(Odd )</span>
+        <button (click)="removeCourse(course)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
+        <button (click)="updateCourse(course)" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<hr>
+<h3>Pipe Demo</h3>
+<div>
+  {{course.title | uppercase | lowercase}}
+  <br> {{course.students | number}}
+  <br> {{course.rating | number: '1.2-2'}}
+  <br> {{course.price | currency:'CAD':true}}
+  <br> {{course.date | date: 'shortDate'}}
+</div>
+<div>
+  <p>
+    {{title | summary:5}}
+  </p>
+</div>

@@ -1,0 +1,11 @@
+.glyphicon.glyphicon-heart{
+    font-size: x-large;
+}
+
+.liked{
+    color: deeppink;
+}
+
+.notliked{
+    color: #ccc;
+}

@@ -1,0 +1,33 @@
+<hr>
+<h3>*ngIf and hidden attribute usage</h3>
+<div *ngIf="courses.length > 0">
+  <p>Courses</p>
+</div>
+<div *ngIf="courses.length == 0">
+  <p>No Courses</p>
+</div>
+<br>
+<h4>Or</h4>
+<div *ngIf="courses.length > 0; else nocourse">
+  <p>Courses</p>
+</div>
+<ng-template #nocourse>
+  <p>No Courses</p>
+</ng-template>
+
+<h4>Or</h4>
+<div *ngIf="courses.length>0; then courseagain else nocourseagain"></div>
+<ng-template #courseagain>
+  <p>Courses</p>
+</ng-template>
+<ng-template #nocourseagain>
+  <p>No Courses</p>
+</ng-template>
+
+<h4>Or using hidden attribute</h4>
+<div [hidden]="courses.length == 0">
+  <p>Courses</p>
+</div>
+<div [hidden]="courses.length > 0">
+  <p>No Courses</p>
+</div>

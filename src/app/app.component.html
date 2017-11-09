@@ -1,0 +1,38 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1 class="text-muted">
+    {{title}}!
+  </h1>
+</div>
+<div class="container-fluid">
+  <app-course></app-course>
+  <app-author></app-author>
+  <app-binding></app-binding>
+  <app-pipe-demo></app-pipe-demo>
+  <app-favourite [isActive]="post.isActive" (change)="onFavouriteChanged($event)"></app-favourite>
+  <app-string-format></app-string-format>
+  <app-panel>
+    <ng-container class="heading">Head</ng-container>
+    <div class="body">
+      <h5>Heading</h5>
+      <p>This is the content ...</p>
+    </div>
+  </app-panel>
+  <app-like [isLiked]="tweet.isLiked" [likesCount]="tweet.likesCount"></app-like>
+  <app-if-directive></app-if-directive>
+  <app-switch-directive></app-switch-directive>
+  <app-for-directive></app-for-directive>
+  <app-input-format></app-input-format>
+  <hr>
+  <h3>Zippy</h3>
+  <app-zippy title="Shipping Details">
+    Shipping Details Contents
+  </app-zippy>
+  <app-zippy title="Billing Details">
+    Billing Details Contents
+  </app-zippy>
+  <app-contact-form></app-contact-form>
+  <app-course-form></app-course-form>
+  <signup-form></signup-form>
+  <app-course-list></app-course-list>
+  <app-form-builder-demo></app-form-builder-demo>

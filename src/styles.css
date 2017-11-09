@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.css';
+
+input{
+    max-width: 280px;
+    border-radius: 2px;
+}
+
+textarea{
+    max-width: 480px;
+    border-radius: 2px;
+}
+
+select{
+    max-width: 280px;
+    border-radius: 2px;
+}
+
+body{
+    margin-bottom: 50px;
+}
+
+h3{
+    color:teal;
+}

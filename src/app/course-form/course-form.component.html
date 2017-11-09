@@ -1,0 +1,35 @@
+<hr>
+<h3>Template Driven From II</h3>
+
+<form #f="ngForm">
+  <fieldset>
+    <legend>Course Form</legend>
+    <div class="form-group">
+      <label for="course">Course Name</label>
+      <input ngModel required minlength="5" name="courseName" #courseName="ngModel" type="text" class="form-control">
+      <div *ngIf="courseName.touched && !courseName.valid">
+        <span class="text-muted" *ngIf="courseName.errors.required">Course Name is required.</span>
+        <span class="text-muted" *ngIf="courseName.errors.minlength">Minimum length is 5.</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Category">Category</label>
+      <select required #category="ngModel" ngModel name="category" class="form-control">
+        <option value=""></option>
+        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+      </select>
+      <div *ngIf="category.touched && !category.valid">
+        <span class="text-muted" *ngIf="category.errors.required">Category field is required.</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+              <input ngModel name="moneyBack" type="checkbox"> 30-day money back guarantee
+        </label>
+      </div>
+    </div>
+    <p>{{f.value | json}}</p>
+    <button class="btn btn-warning">Submit</button>
+  </fieldset>
+</form>

@@ -1,0 +1,55 @@
+<hr>
+<h3>Template Driven Form</h3>
+
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <fieldset>
+    <legend>Contact Form</legend>
+    <div ngModelGroup="contact" #contact="ngModelGroup">
+      <span *ngIf="!contact.valid && contact.touched">.....</span>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input ngModel name="firstName" #firstName="ngModel" id="firstName" required minlength="3" maxlength="10" pattern="Iman"
+          type="text" (change)="log(firstName)" class="form-control">
+        <div class="text-muted" *ngIf="firstName.touched && !firstName.valid">
+          <span *ngIf="firstName.errors.required">First Name is Required.</span>
+          <span *ngIf="firstName.errors.minlength">Minimum length is {{firstName.errors.minlength.requiredLength}}.</span><br>
+          <span *ngIf="firstName.errors.maxlength">Maximum length is 10.</span>
+          <span *ngIf="firstName.errors.pattern">Pattern is not followed.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <textarea ngModel name="comment" id="comment" class="form-control" cols="30" rows="10"></textarea>
+    </div>
+
+    <div class="checkbox">
+      <label>
+        <input ngModel type="checkbox" id="chk" name="subscribe"/> Subscribe
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="paymentMethods">Payment Method</label>
+      <select multiple ngModel name="paymentMethods" id="paymentMethods" class="form-control">
+        <option value=""></option>
+        <option *ngFor="let method of paymentMethods" [value]="method.id">{{method.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Method od Payment</label>
+      <div *ngFor="let method of paymentMethods" class="radio">
+        <label>
+          <input type="radio" [value]=method.id ngModel  name="payment"/> {{method.name}}
+      </label>
+      </div>
+    </div>
+
+    <p>{{f.value | json}}</p>
+
+    <div class="form-group">
+      <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+    </div>
+  </fieldset>
+</form>

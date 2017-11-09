@@ -1,0 +1,31 @@
+<hr>
+<h3>Reactive Forms</h3>
+<form [formGroup]="form" (ngSubmit)="login()">
+    <fieldset>
+        <legend>Signup Form</legend>
+        <div class="alert alert-warning" *ngIf="form.errors">Login is invalid</div>
+        <div formGroupName="account">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input formControlName="username" id="username" type="text" class="form-control">
+                <div *ngIf="username.pending">Pending...</div>
+                <div class="text-muted" *ngIf="!username.valid && username.touched">
+                    <span class="text-muted" *ngIf="username.errors?.required">Username is Required.</span>
+                    <span class="text-muted" *ngIf="username.errors?.minlength">Should atleast consist of {{username.errors.minlength.requiredLength}} characaters</span>
+                    <span class="text-muted" *ngIf="username.errors?.cannotContainSpace">Username cannot contain space.</span>
+                    <span class="text-muted" *ngIf="username.errors?.shouldBeUnique">Username should be unique.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input formControlName="password" id="password" type="password" class="form-control">
+                <div class="text-muted" *ngIf="!password?.valid && password?.touched">
+                    <span class="text-muted" *ngIf="password.errors?.required">Password is required.</span>
+                    <span class="text-muted" *ngIf="password.errors?.shouldBeUnique">Username should be unique.</span>
+                </div>
+            </div>
+        </div>
+        <p>{{form.value | json}}</p>
+        <button class="btn btn-primary" type="submit">Sign Up</button>
+    </fieldset>
+</form>

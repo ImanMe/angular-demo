@@ -1,0 +1,13 @@
+span.glyphicon {
+    font-size: 2em;
+}
+
+.inactive{
+    color: gray;
+    
+}
+
+.active{
+    color: yellow;
+}
+
